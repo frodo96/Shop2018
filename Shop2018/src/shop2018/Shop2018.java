@@ -15,7 +15,18 @@ public class Shop2018 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+     Produkt chleb = new Produkt("chleb",(2.2));
+     Produkt maslo = new Produkt("maslo",(6.15));
+     Produkt mleko = new Produkt("mleko",(1.9));
+     Produkt jogurt = new Produkt("jogurt",(0.95));
+     
+     Koszyk koszyk = new Koszyk();
+     koszyk.dodaj(chleb);
+     koszyk.dodaj(maslo);
+     koszyk.dodaj(maslo);
+     koszyk.dodaj(jogurt);
+     
+     System.out.println(koszyk.doZaplaty());
     }
     
 }
