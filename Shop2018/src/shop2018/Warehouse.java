@@ -20,6 +20,20 @@ public class Warehouse {
         products.add(new Product("śmietana",new BigDecimal("1.5")));
     }
     
+    public Collection<Product> productsAvailable()
+    {
+        Collection<Product> result = new ArrayList();
+        for(Product p : products)
+        {
+            if(p.getCount()>0)
+            {
+                result.add(p);
+            }
+        }
+        return result;
+    }
+    
+    
     public Collection<Product> productsSortedByName()
     {
         TreeSet<Product> set = new TreeSet();
@@ -37,7 +51,18 @@ public class Warehouse {
     
     public void doOrder(Cart cart)
     {
-        
+        for(Product p : cart.getProducts())
+        {
+            int count = cart.getCount(p);
+            for(Product pr : products)
+            {
+                if(pr.getName().equals(p.getName()))
+                {
+                    pr.setCount(pr.getCount()-count);
+                    break;
+                }
+            }
+        }
     }
     
     @Override
@@ -50,6 +75,7 @@ public class Warehouse {
         System.out.println(w);
         System.out.println(w.productsSortedByName());
         System.out.println(w.productsSortedByPrice());
+        System.out.println(w.productsAvailable());
         
         
         

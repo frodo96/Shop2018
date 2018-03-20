@@ -35,6 +35,7 @@ public class Shop2018 {
      System.out.println(w);
      w.doOrder(koszyk);
      System.out.println(w);
+     
     }
     
 }
